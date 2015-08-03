@@ -9,8 +9,6 @@
 #import "YHGetNetPictureSize.h"
 
 @implementation YHGetNetPictureSize
-//讨厌警告
--(id)diskImageDataBySearchingAllPathsForKey:(id)key{return nil;}
 
 +(CGSize)downloadImageSizeWithURL:(id)imageURL
 {
@@ -160,4 +158,7 @@
         }
     }
 }
+
+-(id)diskImageDataBySearchingAllPathsForKey:(id)key{return nil;}
+
 @end
