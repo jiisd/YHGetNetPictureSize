@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "YHGetNetPictureSize.h"
-#import "SDWebImageManager.h"
 
 @interface ViewController ()
 
@@ -33,20 +32,26 @@
 
 /// 获得图片大小
 - (void)getSize:(NSURL *)url {
-    CGSize size = [YHGetNetPictureSize downloadImageSizeWithURL:url];
+    CGSize size = [YHGetNetPictureSize getImageSizeWithURL:url];
     NSLog(@"从服务器获得图片的尺寸--->%@",NSStringFromCGSize(size));
 }
 
 /// 显示图片验证
 - (void)displayImage:(NSURL*)url {
-    [[SDWebImageManager sharedManager] downloadImageWithURL:url options:SDWebImageRetryFailed | SDWebImageLowPriority progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        // 主线程检测
-        NSLog(@"%@",[NSThread currentThread]);
-        // 显示
-        UIImageView *iv = [[UIImageView alloc]initWithImage:image];
-        iv.center = self.view.center;
-        [self.view addSubview:iv];
-    }];
+
+    [[[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSData *data = [NSData dataWithContentsOfURL:location];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIImage *image = [UIImage imageWithData:data];
+            UIImageView *iv = [[UIImageView alloc]initWithImage:image];
+            iv.center = self.view.center;
+            [self.view addSubview:iv];
+        });
+        
+    }] resume];
 }
 
 @end

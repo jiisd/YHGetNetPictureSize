@@ -10,5 +10,5 @@
 #import <UIKit/UIKit.h>
 
 @interface YHGetNetPictureSize : NSObject
-+(CGSize)downloadImageSizeWithURL:(id)imageURL;
++(CGSize)getImageSizeWithURL:(id)imageURL;
 @end
