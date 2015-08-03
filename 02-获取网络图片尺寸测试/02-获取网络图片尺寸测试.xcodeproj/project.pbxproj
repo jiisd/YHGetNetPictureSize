@@ -14,7 +14,6 @@
 		BA9CFC5E1B6F10B600A6AFC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9CFC5D1B6F10B600A6AFC3 /* Assets.xcassets */; };
 		BA9CFC611B6F10B600A6AFC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9CFC5F1B6F10B600A6AFC3 /* LaunchScreen.storyboard */; };
 		BA9CFC9C1B6F1D2400A6AFC3 /* YHGetNetPictureSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9CFC9B1B6F1D2400A6AFC3 /* YHGetNetPictureSize.m */; };
-		BA9CFCA21B6F3DD800A6AFC3 /* test120.0, 115.0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA9CFCA11B6F3DD800A6AFC3 /* test120.0, 115.0.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		BA9CFC621B6F10B600A6AFC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA9CFC9A1B6F1D2400A6AFC3 /* YHGetNetPictureSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHGetNetPictureSize.h; sourceTree = "<group>"; };
 		BA9CFC9B1B6F1D2400A6AFC3 /* YHGetNetPictureSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHGetNetPictureSize.m; sourceTree = "<group>"; };
-		BA9CFCA11B6F3DD800A6AFC3 /* test120.0, 115.0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "test120.0, 115.0.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +67,7 @@
 				BA9CFC551B6F10B600A6AFC3 /* AppDelegate.m */,
 				BA9CFC571B6F10B600A6AFC3 /* ViewController.h */,
 				BA9CFC581B6F10B600A6AFC3 /* ViewController.m */,
+				BA9CFC5D1B6F10B600A6AFC3 /* Assets.xcassets */,
 				BA9CFC511B6F10B600A6AFC3 /* Supporting Files */,
 			);
 			path = "02-获取网络图片尺寸测试";
@@ -87,8 +86,6 @@
 			children = (
 				BA9CFC621B6F10B600A6AFC3 /* Info.plist */,
 				BA9CFC5A1B6F10B600A6AFC3 /* Main.storyboard */,
-				BA9CFCA11B6F3DD800A6AFC3 /* test120.0, 115.0.jpg */,
-				BA9CFC5D1B6F10B600A6AFC3 /* Assets.xcassets */,
 				BA9CFC5F1B6F10B600A6AFC3 /* LaunchScreen.storyboard */,
 			);
 			name = Other;
@@ -163,7 +160,6 @@
 				BA9CFC611B6F10B600A6AFC3 /* LaunchScreen.storyboard in Resources */,
 				BA9CFC5E1B6F10B600A6AFC3 /* Assets.xcassets in Resources */,
 				BA9CFC5C1B6F10B600A6AFC3 /* Main.storyboard in Resources */,
-				BA9CFCA21B6F3DD800A6AFC3 /* test120.0, 115.0.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
