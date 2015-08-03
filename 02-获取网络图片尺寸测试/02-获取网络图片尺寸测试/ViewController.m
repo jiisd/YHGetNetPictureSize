@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  02-获取网络图片尺寸测试
+//  获取网络图片尺寸
 //
 //  Created by 郑亚恒 on 15/8/3.
 //  Copyright © 2015年 zhengyaheng. All rights reserved.
@@ -23,7 +23,7 @@
     // 加载网络图片返回尺寸测试
     NSURL *url = [NSURL URLWithString:@"http://ww4.sinaimg.cn/thumbnail/0069XRS3gw1eup5nmy2ulj30tw326tob.jpg"];
     
-    // 显示大小
+    // 获取图片尺寸
     [self getSize:url];
     
     // 显示图片

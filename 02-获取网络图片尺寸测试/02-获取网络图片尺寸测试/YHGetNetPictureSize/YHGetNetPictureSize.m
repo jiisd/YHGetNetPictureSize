@@ -97,7 +97,7 @@
         return CGSizeZero;
     }
     
-    if ([data length] < 210) {// 肯定只有一个DQT字段
+    if ([data length] < 210) {
         short w1 = 0, w2 = 0;
         [data getBytes:&w1 range:NSMakeRange(0x60, 0x1)];
         [data getBytes:&w2 range:NSMakeRange(0x61, 0x1)];
@@ -112,7 +112,7 @@
         [data getBytes:&word range:NSMakeRange(0x15, 0x1)];
         if (word == 0xdb) {
             [data getBytes:&word range:NSMakeRange(0x5a, 0x1)];
-            if (word == 0xdb) {// 两个DQT字段
+            if (word == 0xdb) {
                 short w1 = 0, w2 = 0;
                 [data getBytes:&w1 range:NSMakeRange(0xa5, 0x1)];
                 [data getBytes:&w2 range:NSMakeRange(0xa6, 0x1)];
@@ -122,7 +122,7 @@
                 [data getBytes:&h2 range:NSMakeRange(0xa4, 0x1)];
                 short h = (h1 << 8) + h2;
                 return CGSizeMake(w, h);
-            } else {// 一个DQT字段
+            } else {
                 short w1 = 0, w2 = 0;
                 [data getBytes:&w1 range:NSMakeRange(0x60, 0x1)];
                 [data getBytes:&w2 range:NSMakeRange(0x61, 0x1)];

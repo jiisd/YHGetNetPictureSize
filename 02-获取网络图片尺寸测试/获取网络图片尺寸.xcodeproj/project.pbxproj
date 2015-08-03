@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BA9CFC4E1B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "02-获取网络图片尺寸测试.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA9CFC4E1B6F10B500A6AFC3 /* 获取网络图片尺寸.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "获取网络图片尺寸.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9CFC521B6F10B600A6AFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA9CFC541B6F10B600A6AFC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA9CFC551B6F10B600A6AFC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		BA9CFC451B6F10B500A6AFC3 = {
 			isa = PBXGroup;
 			children = (
-				BA9CFC501B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试 */,
+				BA9CFC501B6F10B500A6AFC3 /* 获取网络图片尺寸 */,
 				BA9CFC4F1B6F10B500A6AFC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,12 +53,12 @@
 		BA9CFC4F1B6F10B500A6AFC3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA9CFC4E1B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试.app */,
+				BA9CFC4E1B6F10B500A6AFC3 /* 获取网络图片尺寸.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BA9CFC501B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试 */ = {
+		BA9CFC501B6F10B500A6AFC3 /* 获取网络图片尺寸 */ = {
 			isa = PBXGroup;
 			children = (
 				BA9CFC971B6F12DC00A6AFC3 /* Other */,
@@ -70,6 +70,7 @@
 				BA9CFC5D1B6F10B600A6AFC3 /* Assets.xcassets */,
 				BA9CFC511B6F10B600A6AFC3 /* Supporting Files */,
 			);
+			name = "获取网络图片尺寸";
 			path = "02-获取网络图片尺寸测试";
 			sourceTree = "<group>";
 		};
@@ -103,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA9CFC4D1B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试 */ = {
+		BA9CFC4D1B6F10B500A6AFC3 /* 获取网络图片尺寸 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA9CFC651B6F10B600A6AFC3 /* Build configuration list for PBXNativeTarget "02-获取网络图片尺寸测试" */;
+			buildConfigurationList = BA9CFC651B6F10B600A6AFC3 /* Build configuration list for PBXNativeTarget "获取网络图片尺寸" */;
 			buildPhases = (
 				BA9CFC4A1B6F10B500A6AFC3 /* Sources */,
 				BA9CFC4B1B6F10B500A6AFC3 /* Frameworks */,
@@ -115,9 +116,9 @@
 			);
 			dependencies = (
 			);
-			name = "02-获取网络图片尺寸测试";
+			name = "获取网络图片尺寸";
 			productName = "02-获取网络图片尺寸测试";
-			productReference = BA9CFC4E1B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试.app */;
+			productReference = BA9CFC4E1B6F10B500A6AFC3 /* 获取网络图片尺寸.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BA9CFC491B6F10B500A6AFC3 /* Build configuration list for PBXProject "02-获取网络图片尺寸测试" */;
+			buildConfigurationList = BA9CFC491B6F10B500A6AFC3 /* Build configuration list for PBXProject "获取网络图片尺寸" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -147,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA9CFC4D1B6F10B500A6AFC3 /* 02-获取网络图片尺寸测试 */,
+				BA9CFC4D1B6F10B500A6AFC3 /* 获取网络图片尺寸 */,
 			);
 		};
 /* End PBXProject section */
@@ -286,7 +287,7 @@
 				INFOPLIST_FILE = "02-获取网络图片尺寸测试/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yahengzheng-163.com.-2-----------";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "获取网络图片尺寸";
 			};
 			name = Debug;
 		};
@@ -297,14 +298,14 @@
 				INFOPLIST_FILE = "02-获取网络图片尺寸测试/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yahengzheng-163.com.-2-----------";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "获取网络图片尺寸";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA9CFC491B6F10B500A6AFC3 /* Build configuration list for PBXProject "02-获取网络图片尺寸测试" */ = {
+		BA9CFC491B6F10B500A6AFC3 /* Build configuration list for PBXProject "获取网络图片尺寸" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA9CFC631B6F10B600A6AFC3 /* Debug */,
@@ -313,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA9CFC651B6F10B600A6AFC3 /* Build configuration list for PBXNativeTarget "02-获取网络图片尺寸测试" */ = {
+		BA9CFC651B6F10B600A6AFC3 /* Build configuration list for PBXNativeTarget "获取网络图片尺寸" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA9CFC661B6F10B600A6AFC3 /* Debug */,
