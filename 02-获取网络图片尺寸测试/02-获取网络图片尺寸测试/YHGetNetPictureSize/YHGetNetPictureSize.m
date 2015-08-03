@@ -1,6 +1,6 @@
 //
 //  YHGetNetPictureSize.m
-//  01-新浪微博项目Swift
+//  Swift
 //
 //  Created by 郑亚恒 on 15/8/3.
 //  Copyright © 2015年 zhengyaheng. All rights reserved.
@@ -19,27 +19,10 @@
     if([imageURL isKindOfClass:[NSString class]]){
         URL = [NSURL URLWithString:imageURL];
     }
-    if(URL == nil)
+    if(URL == nil) {
         return CGSizeZero;
-    
-    NSString* absoluteString = URL.absoluteString;
-    
-#ifdef dispatch_main_sync_safe
-    if([[SDImageCache sharedImageCache] diskImageExistsWithKey:absoluteString])
-    {
-        UIImage* image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:absoluteString];
-        if(!image)
-        {
-            NSData* data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:URL.absoluteString];
-            image = [UIImage imageWithData:data];
-        }
-        if(!image)
-        {
-            return image.size;
-        }
     }
-#endif
-    
+
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     NSString* pathExtendsion = [URL.pathExtension lowercaseString];
     
@@ -60,9 +43,6 @@
         UIImage* image = [UIImage imageWithData:data];
         if(image)
         {
-#ifdef dispatch_main_sync_safe
-            [[SDImageCache sharedImageCache] storeImage:image recalculateFromImage:YES imageData:data forKey:URL.absoluteString toDisk:YES];
-#endif
             size = image.size;
         }
     }
