@@ -32,6 +32,7 @@
 
 /// 获得图片大小
 - (void)getSize:(NSURL *)url {
+    
     CGSize size = [YHGetNetPictureSize getImageSizeWithURL:url];
     NSLog(@"从服务器获得图片的尺寸--->%@",NSStringFromCGSize(size));
 }
