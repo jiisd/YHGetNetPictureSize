@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  获取网络图片尺寸
+//  Demo
 //
-//  Created by 郑亚恒 on 15/8/3.
-//  Copyright © 2015年 zhengyaheng. All rights reserved.
+//  Created by 郑亚恒 on 15/8/25.
+//  Copyright © 2015年 郑亚恒. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -20,8 +20,8 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    // 加载网络图片返回尺寸测试
-    NSURL *url = [NSURL URLWithString:@"http://ww4.sinaimg.cn/thumbnail/0069XRS3gw1eup5nmy2ulj30tw326tob.jpg"];
+    // 加载网络图片返回尺寸测试（图片网址可能失效，更换即可）
+    NSURL *url = [NSURL URLWithString:@"http://cdn.t04.pic.sogou.com/ac75323d6b6de243-503c0c74be6ae02f-fd60a6f0fbf944e3a2c80b2b3d36ae98.jpg"];
     
     // 获取图片尺寸
     [self getSize:url];
@@ -39,10 +39,10 @@
 
 /// 显示图片验证
 - (void)displayImage:(NSURL*)url {
-
-    [[[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        NSData *data = [NSData dataWithContentsOfURL:location];
+    
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:0 timeoutInterval:10];
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -54,5 +54,6 @@
         
     }] resume];
 }
+
 
 @end
