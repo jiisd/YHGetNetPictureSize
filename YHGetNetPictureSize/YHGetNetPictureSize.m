@@ -6,6 +6,7 @@
 //  Copyright © 2015年 zhengyaheng. All rights reserved.
 //
 
+
 #import "YHGetNetPictureSize.h"
 
 @implementation YHGetNetPictureSize
@@ -24,23 +25,34 @@
     }
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
-    NSString* pathExtendsion = [URL.pathExtension lowercaseString];
+
+    NSString *imageType = [self typeForImageUrl:URL];
     
     CGSize size = CGSizeZero;
-    if([pathExtendsion isEqualToString:@"png"]){
+    
+    if([imageType isEqualToString:@"png"]){
+        
         size =  [self downloadPNGImageSizeWithRequest:request];
-    }
-    else if([pathExtendsion isEqual:@"gif"])
-    {
+        
+    } else if([imageType isEqual:@"gif"]) {
+        
         size =  [self downloadGIFImageSizeWithRequest:request];
-    }
-    else{
+        
+    } else if([imageType isEqual:@"jpg"]) {
+        
         size = [self downloadJPGImageSizeWithRequest:request];
     }
+    
     if(CGSizeEqualToSize(CGSizeZero, size))
     {
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSData* data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:URL] returningResponse:nil error:nil];
+#pragma clang diagnostic pop
+        
         UIImage* image = [UIImage imageWithData:data];
+        
         if(image)
         {
             size = image.size;
@@ -48,10 +60,41 @@
     }
     return size;
 }
-+(CGSize)downloadPNGImageSizeWithRequest:(NSMutableURLRequest*)request
-{
-    [request setValue:@"bytes=16-23" forHTTPHeaderField:@"Range"];
+
++ (NSString *)typeForImageUrl:(NSURL *)url {
+    
+    uint8_t c;
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request setValue:@"bytes=-1" forHTTPHeaderField:@"range"];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+#pragma clang diagnostic pop
+   
+    [data getBytes:&c length:1];
+    
+    switch (c) {
+        case 0xFF:
+            return @"jpg";
+        case 0x89:
+            return @"png";
+        case 0x47:
+            return @"gif";
+    }
+    return nil;
+}
+
++ (CGSize)downloadPNGImageSizeWithRequest:(NSMutableURLRequest*)request
+{
+    [request setValue:@"bytes=16-23" forHTTPHeaderField:@"range"];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+#pragma clang diagnostic pop
     if(data.length == 8)
     {
         int w1 = 0, w2 = 0, w3 = 0, w4 = 0;
@@ -70,10 +113,15 @@
     }
     return CGSizeZero;
 }
-+(CGSize)downloadGIFImageSizeWithRequest:(NSMutableURLRequest*)request
++ (CGSize)downloadGIFImageSizeWithRequest:(NSMutableURLRequest*)request
 {
-    [request setValue:@"bytes=6-9" forHTTPHeaderField:@"Range"];
+    [request setValue:@"bytes=6-9" forHTTPHeaderField:@"range"];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+#pragma clang diagnostic pop
+    
     if(data.length == 4)
     {
         short w1 = 0, w2 = 0;
@@ -88,10 +136,15 @@
     }
     return CGSizeZero;
 }
-+(CGSize)downloadJPGImageSizeWithRequest:(NSMutableURLRequest*)request
+
++ (CGSize)downloadJPGImageSizeWithRequest:(NSMutableURLRequest*)request
 {
-    [request setValue:@"bytes=0-209" forHTTPHeaderField:@"Range"];
+    [request setValue:@"bytes=0-209" forHTTPHeaderField:@"range"];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+#pragma clang diagnostic pop
     
     if ([data length] <= 0x58) {
         return CGSizeZero;
@@ -139,6 +192,6 @@
     }
 }
 
--(id)diskImageDataBySearchingAllPathsForKey:(id)key{return nil;}
+- (id)diskImageDataBySearchingAllPathsForKey:(id)key{return nil;}
 
 @end
