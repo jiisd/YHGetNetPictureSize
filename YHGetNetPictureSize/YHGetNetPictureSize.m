@@ -11,8 +11,8 @@
 
 @implementation YHGetNetPictureSize
 
-+(CGSize)getImageSizeWithURL:(id)imageURL
-{
++(CGSize)getImageSizeWithURL:(id)imageURL {
+    
     NSURL* URL = nil;
     if([imageURL isKindOfClass:[NSURL class]]){
         URL = imageURL;
@@ -43,8 +43,7 @@
         size = [self downloadJPGImageSizeWithRequest:request];
     }
     
-    if(CGSizeEqualToSize(CGSizeZero, size))
-    {
+    if(CGSizeEqualToSize(CGSizeZero, size)) {
         
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -87,16 +86,16 @@
     return nil;
 }
 
-+ (CGSize)downloadPNGImageSizeWithRequest:(NSMutableURLRequest*)request
-{
++ (CGSize)downloadPNGImageSizeWithRequest:(NSMutableURLRequest*)request {
+    
     [request setValue:@"bytes=16-23" forHTTPHeaderField:@"range"];
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 #pragma clang diagnostic pop
-    if(data.length == 8)
-    {
+    
+    if(data.length == 8) {
         int w1 = 0, w2 = 0, w3 = 0, w4 = 0;
         [data getBytes:&w1 range:NSMakeRange(0, 1)];
         [data getBytes:&w2 range:NSMakeRange(1, 1)];
@@ -113,8 +112,8 @@
     }
     return CGSizeZero;
 }
-+ (CGSize)downloadGIFImageSizeWithRequest:(NSMutableURLRequest*)request
-{
++ (CGSize)downloadGIFImageSizeWithRequest:(NSMutableURLRequest*)request {
+    
     [request setValue:@"bytes=6-9" forHTTPHeaderField:@"range"];
     
 #pragma clang diagnostic push
@@ -122,8 +121,7 @@
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 #pragma clang diagnostic pop
     
-    if(data.length == 4)
-    {
+    if(data.length == 4) {
         short w1 = 0, w2 = 0;
         [data getBytes:&w1 range:NSMakeRange(0, 1)];
         [data getBytes:&w2 range:NSMakeRange(1, 1)];
@@ -137,8 +135,8 @@
     return CGSizeZero;
 }
 
-+ (CGSize)downloadJPGImageSizeWithRequest:(NSMutableURLRequest*)request
-{
++ (CGSize)downloadJPGImageSizeWithRequest:(NSMutableURLRequest*)request {
+    
     [request setValue:@"bytes=0-209" forHTTPHeaderField:@"range"];
     
 #pragma clang diagnostic push
@@ -191,7 +189,5 @@
         }
     }
 }
-
-- (id)diskImageDataBySearchingAllPathsForKey:(id)key{return nil;}
 
 @end

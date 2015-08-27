@@ -1,9 +1,12 @@
 # YHGetNetPictureSize ![](http://pfile.cn/px0r3c)
-##获取网络链接图片大小尺寸的工具类
-####使用场景
-* 快速获取服务器中图片的尺寸大小
-* 得到尺寸后设置相应大小的占位图
-* 待图片异步缓存完毕之后再更新显示该图片
+##免完全下载获取网络链接图片大小尺寸的工具
+####在 pod 中集成方法
+	在 Podfile 文件中添加:
+
+		pod 'YHGetNetPictureSize'
+	
+	执行 pod install 命令
+####使用方法
 
 ```
 	// Use it only one calling method like this
