@@ -9,7 +9,7 @@
 ####使用方法
 
 ```
-	// Use it only one calling method like this
+	// 使用如下方法获取（提醒：当前为同步加载）
    +(CGSize)getImageSizeWithURL:(id)imageURL;
 ```
 
